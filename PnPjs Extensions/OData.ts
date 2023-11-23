@@ -18,7 +18,7 @@ enum FilterJoinOperator {
     OrWithSpace = " or "
 }
 
-export class OData {
+export class SPOData {
     static Where<T = any>() {
         return new QueryableGroups<T>();
     }
@@ -145,7 +145,7 @@ class ComparableField<TBaseInterface, TInputValueType> extends NullableField<TBa
     }
 
     public In(values: TInputValueType[]): ComparisonResult<TBaseInterface> {
-        return OData.Where<TBaseInterface>().Some(values.map(x => this.EqualTo(x)));
+        return SPOData.Where<TBaseInterface>().Some(values.map(x => this.EqualTo(x)));
     };
 }
 
