@@ -82,6 +82,14 @@ export namespace OData {
         public NotEqualTo(value: Tinput): BaseFilterCompareResult<Ttype> {
             return new BaseFilterCompareResult<Ttype>([...this.query, FilterOperation.NotEquals, this.ToODataValue(value)]);
         }
+
+        public IsNull(): BaseFilterCompareResult<Ttype> {
+            return new BaseFilterCompareResult<Ttype>([...this.query, FilterOperation.Equals, "null"]);
+        }
+
+        public IsNotNull(): BaseFilterCompareResult<Ttype> {
+            return new BaseFilterCompareResult<Ttype>([...this.query, FilterOperation.NotEquals, "null"]);
+        }
     }
 
     class BaseComparableField<Tinput, Ttype> extends BaseField<Tinput, Ttype>{
@@ -138,7 +146,7 @@ export namespace OData {
         }
 
         protected override ToODataValue(value: boolean): string {
-            return `${value == null ? null : value ? 1 : 0}`;
+            return `${value == null ? "null" : value ? 1 : 0}`;
         }
     }
 
