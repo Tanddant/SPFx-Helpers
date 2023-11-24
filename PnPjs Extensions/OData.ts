@@ -146,7 +146,7 @@ class ComparableField<TBaseInterface, TInputValueType> extends NullableField<TBa
 
     public In(values: TInputValueType[]): ComparisonResult<TBaseInterface> {
         return SPOData.Where<TBaseInterface>().Some(values.map(x => this.EqualTo(x)));
-    };
+    }
 }
 
 class TextField<TBaseInterface> extends ComparableField<TBaseInterface, string>{
