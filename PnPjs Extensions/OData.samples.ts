@@ -89,18 +89,25 @@ const Query7 = SPOData.Where<IEmployee>().DateField("Created").IsToday().ToStrin
 // (Created gt '2022-12-31T23:00:00.000Z' and Created lt '2023-12-31T22:59:59.999Z')
 const Query8 = SPOData.Where<IEmployee>().DateField("Created").IsBetween(new Date(2023, 0, 1, 0, 0, 0, 0), new Date(2023, 11, 31, 23, 59, 59, 999)).ToString();
 
+
+
+SPOData.Where<IEmployee>().All([
+    SPOData.Where().DateField("Created").IsBetween(new Date(2023, 0, 1, 0, 0, 0, 0), new Date(2023, 11, 31, 23, 59, 59, 999)),
+    SPOData.Where().LookupField("Department").TextField("Alias").Contains("Consulting"),
+]).ToString();
+
 console.log(Query1);
-
+console.log("\n");
 console.log(Query2);
-
+console.log("\n");
 console.log(Query3);
-
+console.log("\n");
 console.log(Query4);
-
+console.log("\n");
 console.log(Query5);
-
+console.log("\n");
 console.log(Query6);
-
+console.log("\n");
 console.log(Query7);
-
+console.log("\n");
 console.log(Query8);
