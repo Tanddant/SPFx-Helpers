@@ -42,6 +42,14 @@ class QueryableFields<TBaseInterface> extends BaseQuery<TBaseInterface> {
         return new TextField<TBaseInterface>([...this.query, (InternalName as string)]);
     }
 
+    public ChoiceField(InternalName: KeysMatching<TBaseInterface, string>): TextField<TBaseInterface> {
+        return new TextField<TBaseInterface>([...this.query, (InternalName as string)]);
+    }
+
+    public MultiChoiceField(InternalName: KeysMatching<TBaseInterface, string[]>): TextField<TBaseInterface> {
+        return new TextField<TBaseInterface>([...this.query, (InternalName as string)]);
+    }
+
     public NumberField(InternalName: KeysMatching<TBaseInterface, number>): NumberField<TBaseInterface> {
         return new NumberField<TBaseInterface>([...this.query, (InternalName as string)]);
     }

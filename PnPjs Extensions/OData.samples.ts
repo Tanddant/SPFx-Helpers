@@ -20,6 +20,9 @@ export interface IEmployee {
     DepartmentId: number
     Manager: IEmployee;
     Created: Date;
+    Emails: string[];
+    SecondaryDepartment: IDepartment[];
+    SecondaryDepartmentId: number[];
 }
 
 //Sample queries
